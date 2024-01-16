@@ -24,6 +24,7 @@ import type {
 import commonApi from '@common/api'
 import { PHALCON_EXPLORER_DOMAIN } from '@common/config/uri'
 import { Brand } from '../../components'
+import { SupportChainDrawer, SearchResultDrawer } from './components';
 
 import styles from './index.module.less'
 
@@ -33,6 +34,23 @@ const Shortcuts: FC = () => {
   const [activeIdx, setActiveIdx] = useState(0)
   const [searchResults, setSearchResults] = useState<SearchResultItem[]>([])
   const valueRef = useRef(value)
+  const [configSupportChainVisible, setConfigSupportChainVisible] = useState(false)
+  const [configSearchResultVisible, setConfigSearchResultVisible] = useState(false)
+
+  const onSupportChainChange = () => {
+    // const newWebOpt = { ...supportWebList }
+    // for (const key in newWebOpt) {
+    //   if (key === opt.name) {
+    //     newWebOpt[key].enabled = value
+    //   }
+    // }
+    // setSupportWebList(newWebOpt)
+    // onRefresh()
+  }
+
+  const onSearchResultChange = () => {
+
+  }
 
   const onValueChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value
@@ -57,6 +75,7 @@ const Shortcuts: FC = () => {
       setLoading(false)
       if (success) {
         setSearchResults(data ?? [])
+        setConfigSearchResultVisible(true);
       } else {
         setSearchResults([])
       }
@@ -165,8 +184,11 @@ const Shortcuts: FC = () => {
           <input
             type="text"
             name="text"
+            value={value}
             className={styles.searchInput}
             placeholder="Explore within Web3"
+            onChange={onValueChange}
+            onKeyUp={onKeyUp}
           />
           <img className={styles.searchLogo} src={getImageUrl('onchain_search_logo')} alt="" />
           {/* <Input
@@ -210,7 +232,7 @@ const Shortcuts: FC = () => {
             ))}
           </div>
         </div>
-        <div className={styles.supportedChains}>
+        <div className={styles.supportedChains} onClick={() => setConfigSupportChainVisible(true)}>
           <div className={styles.supportedChainsTxt}>
             Supported Chains
           </div>
@@ -236,8 +258,22 @@ const Shortcuts: FC = () => {
           ))}
         </div> */}
         <Brand />
-
       </div>
+      <SupportChainDrawer
+        visible={configSupportChainVisible}
+        onClose={() => setConfigSupportChainVisible(false)}
+        onChange={onSupportChainChange}
+      />
+      <SearchResultDrawer
+        visible={configSearchResultVisible}
+        onClose={() => {
+          setConfigSearchResultVisible(false)
+          setSearchResults([])
+          setValue('')
+        }
+      }
+        onChange={onSearchResultChange}
+      />
     </div>
   )
 }
