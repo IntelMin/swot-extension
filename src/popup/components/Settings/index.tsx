@@ -57,22 +57,22 @@ const Settings: FC = () => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.onChainListItem}>
+      <div className={styles.onChainListItem} onClick={() => setConfigSupportWebVisible(true)}>
         <img className={styles.onchainListItemImg} src={getImageUrl('onchain_supported_website')} alt="OnChain Supported Website IMG" />
         <div className={styles.onchainListItemSubTitle}>Supported Websites</div>
         <div className={styles.onchainListItemSubContent}>Toggle On/Off any of supported websites</div>
       </div>
 
-      <div className={styles.onChainListItem}>
+      <div className={styles.onChainListItem} onClick={() => setConfigExploresVisible(true)}>
         <img className={styles.onchainListItemImg} src={getImageUrl('onchain_customize_explorer')} alt="OnChain Customize Explorer IMG" />
-        <div className={styles.onchainListItemSubTitle}>Supported Websites</div>
-        <div className={styles.onchainListItemSubContent}>Toggle On/Off any of supported websites</div>
+        <div className={styles.onchainListItemSubTitle}>Customize Explorer</div>
+        <div className={styles.onchainListItemSubContent}>Customize your Blockchain explorer</div>
       </div>
       
-      <div className={styles.onChainListItem}>
+      <div className={styles.onChainListItem} onClick={() => setConfigNFTVisible(true)}>
         <img className={styles.onchain_nft_marketplace} src={getImageUrl('onchain_nft_marketplace')} alt="OnChain NFT Marketplace IMG" />
-        <div className={styles.onchainListItemSubTitle}>Supported Websites</div>
-        <div className={styles.onchainListItemSubContent}>Toggle On/Off any of supported websites</div>
+        <div className={styles.onchainListItemSubTitle}>NFT Marketplace</div>
+        <div className={styles.onchainListItemSubContent}>Personalize your NFT marketplace upgrades.</div>
       </div>
       
       {/* <div className={styles.content}>
@@ -96,7 +96,7 @@ const Settings: FC = () => {
           />
         </Cell.Group>
         
-      </div>
+      </div> */}
       <SupportWebsiteDrawer
         visible={configSupportWebVisible}
         onClose={() => setConfigSupportWebVisible(false)}
@@ -112,7 +112,7 @@ const Settings: FC = () => {
         visible={configNFTVisible}
         onClose={() => setConfigNFTVisible(false)}
         onSwitchChange={onSwitchChange}
-      /> */}
+      /> 
     </div>
   )
 }

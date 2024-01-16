@@ -14,6 +14,10 @@ const App: FC = () => {
     setSelectedSettings(!selectedSettings);
   }
 
+  const onClose = () => {
+    setSelectedSettings(false);
+  }
+
   return (
     <ConfigProvider
       theme={{
@@ -38,8 +42,8 @@ const App: FC = () => {
           <div className={styles.settingsContainer}>
             <div className={styles.settingsContent}>
               <div className={styles.settingsIcon} >
-                <img className={styles.arrowLeftLogo} src={getImageUrl('onchain_arrow_left')} alt="OnChain Arrow Left" />
-                <img className={styles.cancelLogo} src={getImageUrl('onchain_cancel')} alt="OnChain Cancel" />
+                <img className={styles.arrowLeftLogo} src={getImageUrl('onchain_arrow_left')} onClick={onClose} alt="OnChain Arrow Left" />
+                <img className={styles.cancelLogo} src={getImageUrl('onchain_cancel')} onClick={onClose} alt="OnChain Cancel" />
               </div>
               <div className={styles.divider}></div>
               <Settings />

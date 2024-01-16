@@ -23,6 +23,7 @@ const ConfigExploresDrawer: FC<Props> = ({
   return (
     <Drawer visible={visible} onClose={onClose}>
       <div className={styles.container}>
+        <div className={styles.title}>Personalize your NFT marketplace upgrades.</div>
         <div className={styles.content}>
           <Cell.Group>
             <Cell

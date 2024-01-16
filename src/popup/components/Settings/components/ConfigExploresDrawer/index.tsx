@@ -27,6 +27,7 @@ const ConfigExploresDrawer: FC<Props> = ({
   return (
     <Drawer visible={visible} onClose={onClose}>
       <div className={styles.container}>
+        <div className={styles.title}>Customize your Blockchain explorer.</div>
         <div className={styles.content}>
           <Cell.Group>
             <Cell

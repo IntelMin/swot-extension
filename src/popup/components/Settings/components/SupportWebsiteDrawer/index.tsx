@@ -34,6 +34,7 @@ const SupportWebsiteDrawer: FC<Props> = ({ visible, onClose, onChange }) => {
     <Drawer visible={visible} onClose={onClose}>
       <div className={styles.container}>
         <div className={styles.content}>
+          <div className={styles.title}>Supported Websites</div>
           <Cell.Group>
             {EXT_SUPPORT_WEB_LIST.map(item => {
               const opt = Object.values(supportWebList).find(
