@@ -181,7 +181,7 @@ const Shortcuts: FC = () => {
       <div className={styles.txtSwotDesc}>Uniting 30+ Web3/AI tools, 300M+ labels, and Fund Flow Map in one extension.</div>
       <div className={styles.chainSection}>
         <div className={styles.searchBarContainer}>
-          <input
+          <Input
             type="text"
             name="text"
             value={value}
@@ -189,6 +189,11 @@ const Shortcuts: FC = () => {
             placeholder="Explore within Web3"
             onChange={onValueChange}
             onKeyUp={onKeyUp}
+            suffix={
+              loading && (
+                <LoadingOutlined />
+              )
+            }
           />
           <img className={styles.searchLogo} src={getImageUrl('onchain_search_logo')} alt="" />
           {/* <Input
@@ -211,26 +216,7 @@ const Shortcuts: FC = () => {
             }
             onKeyUp={onKeyUp}
           /> */}
-          <div
-            className={cls(styles.searchResultList, {
-              [styles.show]: !!searchResults.length
-            })}
-          >
-            {searchResults.map(group => (
-              <div key={group.type} className={styles.searchResultItem}>
-                <div className={styles.type}>{group.type}</div>
-                {group.value.map((item, key) => (
-                  <div
-                    data-id={`${group.type}-${key}`}
-                    key={key}
-                    onClick={() => onNavigate(item.url)}
-                  >
-                    {renderSearchResultItem(group.type, item)}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
+
         </div>
         <div className={styles.supportedChains} onClick={() => setConfigSupportChainVisible(true)}>
           <div className={styles.supportedChainsTxt}>
@@ -270,9 +256,10 @@ const Shortcuts: FC = () => {
           setConfigSearchResultVisible(false)
           setSearchResults([])
           setValue('')
+          }
         }
-      }
         onChange={onSearchResultChange}
+        data={searchResults}
       />
     </div>
   )
