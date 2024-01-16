@@ -1,0 +1,201 @@
+@import '@common/styles/common.less';
+
+.container {
+  width: 100%;
+  padding: 0 24px;
+  .flex-column;
+  .align-center;
+
+  .logo {
+    width: 85px;
+    height: 85px;
+    margin-top: -15px;
+  }
+
+  .txtSwot {
+    color: #FFF;
+    text-align: center;
+    font-family: Conthrax;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .txtSwotDesc {
+    color: #CFCFCF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+    width: 288px;
+  }
+
+  .chainSection {
+    width: 378px;
+    height: 273px;
+    background: #000000;
+    margin-top: 44px;
+    border-radius: 14px;
+  }
+  
+  .searchBarContainer {
+    width: 330px;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    border-radius: 16px;
+    border: 1px solid #414141;
+    background: #171717;
+    margin: auto;
+    margin-top: 48px;
+    margin-bottom: 24px;
+    
+    .searchInput {
+      background: transparent;
+      border: none;
+      width: 272px;
+      height: 26px;
+      color: white;
+      margin: auto;
+    }
+
+    .searchInput[type="text"]:focus {
+      outline: none;
+    }
+    
+    .searchLogo {
+      display: inline-block;
+      float: left;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  // .searchBarContainer {
+  //   width: 100%;
+  //   height: 55px;
+  //   font-size: 16px;
+  //   margin-top: 39px;
+  //   position: relative;
+
+  //   .input {
+  //     height: 100%;
+
+  //     &::placeholder {
+  //       font-size: 14px;
+  //     }
+  //   }
+
+  //   .searchResultList {
+  //     padding: 0;
+  //     margin: 0;
+  //     height: 0;
+  //     position: absolute;
+  //     top: 100%;
+  //     left: 0;
+  //     right: 0;
+  //     border-radius: 8px;
+  //     overflow: hidden;
+  //     background-color: #ffffff;
+  //     box-shadow: 0 9px 28px 8px rgba(0, 0, 0, 0.05),
+  //       0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12);
+  //     list-style: none;
+  //     &.show {
+  //       height: auto;
+  //       max-height: 280px;
+  //       overflow-y: auto;
+  //     }
+  //     .searchResultItem {
+  //       padding: 10px 10px 0;
+  //       cursor: pointer;
+  //       font-size: 14px;
+  //       .flex-column;
+  //       .type {
+  //         background: #f5f5f5;
+  //         border-radius: 2px;
+  //         height: 26px;
+  //         font-family: OpenSauceOne-Bold, sans-serif;
+  //         color: #000000;
+  //         line-height: 14px;
+  //         padding-left: 11px;
+  //         margin-bottom: 9px;
+  //         .align-center;
+  //       }
+  //       .content {
+  //         padding: 11px;
+  //         transition: opacity 0.3s;
+
+  //         &:hover {
+  //           opacity: 0.3;
+  //         }
+  //         .title {
+  //           margin: 0 0 4px;
+  //           .text-ellipsis;
+  //         }
+  //         .link {
+  //           text-decoration: underline;
+  //           display: block;
+  //           .text-ellipsis;
+  //         }
+  //         .iconImg {
+  //           width: 32px;
+  //           height: 32px;
+  //           border-radius: 50%;
+  //           margin-right: 6px;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
+  .supportedChains {
+    display: flex;
+    margin: auto;
+    width: 330px;
+    padding: 12px 24px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    background: linear-gradient(88deg, #19EDD0 1.61%, #3071EA 98.39%);
+    
+    .supportedChainsTxt {
+      color: #FFF;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 20px; /* 142.857% */
+    }
+
+    .onchain_arrow_expand {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+  }
+
+  .navbar {
+    margin: 107px 30px 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    a {
+      &:not(:last-child) {
+        margin-right: 3px;
+        margin-bottom: 10px;
+      }
+    }
+
+    img {
+      width: 26px;
+      height: 26px;
+    }
+  }
+}

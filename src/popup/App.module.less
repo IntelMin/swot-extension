@@ -1,0 +1,94 @@
+.container {
+  width: 410px;
+  height: 546px;
+  overflow: overlay;
+  background-color: #171717;
+
+  .settings{
+    cursor: pointer;
+    padding: 10px;
+    display: inline-block;
+    background: #000;
+    border-radius: 15px;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+    
+    .settingsLogo {
+      color: #000;
+    }
+  }
+
+  .openSettings {
+    position: absolute;
+    div {
+      .arrowLeftLogo {
+        display: inline-flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        border-radius: 16px;
+        background: #171717;
+      }
+      .cancelLogo {
+        display: inline-flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        border-radius: 16px;
+        background: #171717;
+      }
+    }
+  }
+}
+
+.settingsContainer {
+  padding: 16px;
+  height: 100%;
+  width: 410px;
+  height: 664px;
+  background-color: #171717;
+
+  .settingsContent {
+    display: block;
+    background: #000000;
+    border-radius: 14px;
+    height: 100%;
+    .settingsIcon {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px;
+
+      .arrowLeftLogo {
+        display: inline-flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        border-radius: 16px;
+        background: #171717;
+        cursor: pointer;
+      }
+
+      .cancelLogo {
+        display: inline-flex;
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        border-radius: 16px;
+        background: #171717;
+        cursor: pointer;
+      }
+    }
+
+    div.divider {
+      border-top: 1px solid #212121;
+      width: 354px;
+      margin: auto;
+      margin-bottom: 24px;
+    }
+  }
+}
