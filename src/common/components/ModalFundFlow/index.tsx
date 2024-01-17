@@ -299,7 +299,7 @@ const ModalFundFlowGraph: FC<Props> = ({
                     &ldquo;Try Enhanced Version&rdquo;, or go to MetaSleuth.
                   </div>
                 </div>
-                {SLEUTH_SUPPORT_LIST.includes(chain) && (
+                {/* {SLEUTH_SUPPORT_LIST.includes(chain) && (
                   <Button
                     className={styles.msButton}
                     type="primary"
@@ -317,7 +317,7 @@ const ModalFundFlowGraph: FC<Props> = ({
                     />
                     Try Enhanced Version
                   </Button>
-                )}
+                )} */}
               </div>
               <div
                 id="__metadock-fundflow-options-wrapper__"
@@ -464,13 +464,13 @@ const ModalFundFlowGraph: FC<Props> = ({
                     )}
                   />
                 )}
-                <div className={styles.watermarkSwitchContainer}>
+                {/* <div className={styles.watermarkSwitchContainer}>
                   Watermark
                   <Switch
                     checked={enableWatermark}
                     onChange={enable => setEnableWatermark(enable)}
                   />
-                </div>
+                </div> */}
                 <Tooltip
                   getPopupContainer={() =>
                     document.getElementById(
@@ -542,7 +542,7 @@ const ModalFundFlowGraph: FC<Props> = ({
                 </div>
               )
             ) : null}
-            {enableWatermark && (
+            {/* {enableWatermark && (
               <a
                 className={styles.watermark}
                 href="https://blocksec.com/metadock"
@@ -554,7 +554,7 @@ const ModalFundFlowGraph: FC<Props> = ({
                   alt=""
                 />
               </a>
-            )}
+            )} */}
           </div>
         </div>
       </div>
