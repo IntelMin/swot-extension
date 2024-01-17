@@ -511,7 +511,8 @@ const ModalFundFlowGraph: FC<Props> = ({
           <div className={styles.body}>
             {loading && (
               <div className={styles.loading}>
-                <IconMetaDock className={styles.iconMetaDock} />
+                {/* <IconMetaDock className={styles.iconMetaDock} /> */}
+                <img className={styles.iconMetaDock} src={getImageUrl('onchain_logo')} alt="" />
               </div>
             )}
             {error && (
