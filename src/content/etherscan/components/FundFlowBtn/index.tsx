@@ -21,7 +21,7 @@ const FundFlowBtn: FC<Props> = ({ chain, mainAddress }) => {
         icon={<img src={getImageUrl('fundflow')} alt="" />}
         onClick={() => setVisible(true)}
       >
-        Fund Flow
+        Transactions Chart
       </Button>
       <ModalFundFlow
         visible={visible}

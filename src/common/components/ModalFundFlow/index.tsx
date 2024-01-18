@@ -286,7 +286,7 @@ const ModalFundFlowGraph: FC<Props> = ({
                 <div className={styles.mainAddress} title={mainAddress}>
                   {mainAddress}
                 </div>
-                <div className={styles.tipContainer}>
+                {/* <div className={styles.tipContainer}>
                   <img
                     className={styles.iconImg}
                     src={getImageUrl('info')}
@@ -298,8 +298,200 @@ const ModalFundFlowGraph: FC<Props> = ({
                     for reference only. For a detailed fund flow map, click
                     &ldquo;Try Enhanced Version&rdquo;, or go to MetaSleuth.
                   </div>
+                </div> */}
+              </div>
+              <div
+                id="__metadock-fundflow-options-wrapper__"
+                className="align-center"
+              >
+                {/* {fundFlow?.nodes && (
+                  <Select
+                    open={!!addressSelectorVisible}
+                    placement="bottomRight"
+                    className={styles.selector}
+                    getPopupContainer={() =>
+                      document.getElementById(
+                        '__metadock-fundflow-options-wrapper__'
+                      )!
+                    }
+                    popupMatchSelectWidth={false}
+                    dropdownStyle={{ width: 249, padding: '10px 0 0' }}
+                    placeholder="Address / Entity"
+                    onDropdownVisibleChange={(visible: boolean) => {
+                      setAddressSelectorVisible(visible)
+                    }}
+                    dropdownRender={() => (
+                      <div className={styles.dropdownWrapper}>
+                        <Input
+                          className={styles.input}
+                          suffix={
+                            <img
+                              style={{ width: 14 }}
+                              src={getImageUrl('search')}
+                            />
+                          }
+                          placeholder="Address / Entity"
+                          onChange={onAddressKeywordsChange}
+                        />
+                        <div className={styles.addressList}>
+                          {displayAddressOptions.map(node => (
+                            <p key={node.id}>
+                              <Checkbox
+                                disabled={
+                                  mainAddress.toLowerCase() ===
+                                    node.address.toLowerCase() &&
+                                  chain === node.chain
+                                }
+                                checked={node.selected}
+                                onChange={(e: CheckboxChangeEvent) =>
+                                  onAddressFilter(node, e.target.checked)
+                                }
+                              >
+                                {`${node.index} ${
+                                  chain !== node.chain ? `${node.chain} ` : ''
+                                }${
+                                  !node.label
+                                    ? getSubStr(node.address, [9, 6])
+                                    : node.label
+                                }`}
+                              </Checkbox>
+                            </p>
+                          ))}
+                        </div>
+                        <div className={styles.dropdownFooter}>
+                          <Checkbox
+                            defaultChecked={true}
+                            onChange={(e: CheckboxChangeEvent) =>
+                              onSelectAll(e.target.checked)
+                            }
+                          >
+                            All
+                          </Checkbox>
+                          <Button
+                            type="primary"
+                            className={styles.confirmBtn}
+                            onClick={onConfirmFilter}
+                          >
+                            Confirm
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                  />
+                )}
+
+                {fundFlow?.edges && (
+                  <Select
+                    open={tokenSelectorVisible}
+                    placement="bottomRight"
+                    className={styles.selector}
+                    getPopupContainer={() =>
+                      document.getElementById(
+                        '__metadock-fundflow-options-wrapper__'
+                      )!
+                    }
+                    popupMatchSelectWidth={false}
+                    dropdownStyle={{ width: 296, padding: '10px 0 0' }}
+                    placeholder="Token"
+                    onDropdownVisibleChange={(visible: boolean) => {
+                      setTokenSelectorVisible(visible)
+                    }}
+                    dropdownRender={() => (
+                      <div className={styles.dropdownWrapper}>
+                        <Input
+                          className={styles.input}
+                          suffix={
+                            <img
+                              style={{ width: 14 }}
+                              src={getImageUrl('search')}
+                            />
+                          }
+                          placeholder="Token"
+                          onChange={onTokenKeywordsChange}
+                        />
+                        <div className={styles.addressList}>
+                          {displayTokenOptions.map(edge => (
+                            <p key={edge.token}>
+                              <Checkbox
+                                checked={edge.selected}
+                                onChange={(e: CheckboxChangeEvent) =>
+                                  onTokenFilter(edge.token, e.target.checked)
+                                }
+                              >{`${edge.tokenLabel}(${getSubStr(
+                                edge.token,
+                                [9, 6]
+                              )})`}</Checkbox>
+                            </p>
+                          ))}
+                        </div>
+                        <div className={styles.dropdownFooter}>
+                          <Checkbox
+                            defaultChecked={true}
+                            onChange={(e: CheckboxChangeEvent) =>
+                              onSelectAll(e.target.checked, true)
+                            }
+                          >
+                            All
+                          </Checkbox>
+                          <Button
+                            type="primary"
+                            className={styles.confirmBtn}
+                            onClick={onConfirmFilter}
+                          >
+                            Confirm
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                  />
+                )} */}
+                {/* <div className={styles.watermarkSwitchContainer}>
+                  Watermark
+                  <Switch
+                    checked={enableWatermark}
+                    onChange={enable => setEnableWatermark(enable)}
+                  />
+                </div> */}
+                <Tooltip
+                  getPopupContainer={() =>
+                    document.getElementById(
+                      '__metadock-fundflow-options-wrapper__'
+                    )!
+                  }
+                  color="#fff"
+                  placement="bottom"
+                  title={
+                    <div className={styles.downloadPopoverContainer}>
+                      <p
+                        onClick={() =>
+                          onDownload('png', mainAddress, enableWatermark)
+                        }
+                      >
+                        PNG
+                      </p>
+                      <p
+                        onClick={() =>
+                          onDownload('svg', mainAddress, enableWatermark)
+                        }
+                      >
+                        SVG
+                      </p>
+                    </div>
+                  }
+                >
+                  <div className={cls(styles.btn, styles.download)}>
+                    <IconDownload />
+                  </div>
+                </Tooltip>
+                <div className={styles.btn} onClick={onClose}>
+                  <IconClose />
                 </div>
-                {/* {SLEUTH_SUPPORT_LIST.includes(chain) && (
+              </div>
+            </ConfigProvider>
+          </header>
+          <div className={styles.body}>
+            <div className={styles.setting}>
+              {SLEUTH_SUPPORT_LIST.includes(chain) && (
                   <Button
                     className={styles.msButton}
                     type="primary"
@@ -312,18 +504,15 @@ const ModalFundFlowGraph: FC<Props> = ({
                     <img
                       className="mr-1"
                       style={{ width: '18px' }}
-                      src="https://assets.blocksec.com/image/1677135239463-4.png"
+                      src={getImageUrl('onchain_award')}
                       alt=""
                     />
-                    Try Enhanced Version
+                    <span className={styles.tryProVersionTxt}>Try Pro Version</span>
                   </Button>
-                )} */}
-              </div>
-              <div
-                id="__metadock-fundflow-options-wrapper__"
-                className="align-center"
-              >
-                {fundFlow?.nodes && (
+                )}
+              <div className={styles.settingForm}>
+
+              {fundFlow?.nodes && (
                   <Select
                     open={!!addressSelectorVisible}
                     placement="bottomRight"
@@ -464,51 +653,16 @@ const ModalFundFlowGraph: FC<Props> = ({
                     )}
                   />
                 )}
-                {/* <div className={styles.watermarkSwitchContainer}>
+
+                <div className={styles.watermarkSwitchContainer1}>
                   Watermark
                   <Switch
                     checked={enableWatermark}
                     onChange={enable => setEnableWatermark(enable)}
                   />
-                </div> */}
-                <Tooltip
-                  getPopupContainer={() =>
-                    document.getElementById(
-                      '__metadock-fundflow-options-wrapper__'
-                    )!
-                  }
-                  color="#fff"
-                  placement="bottom"
-                  title={
-                    <div className={styles.downloadPopoverContainer}>
-                      <p
-                        onClick={() =>
-                          onDownload('png', mainAddress, enableWatermark)
-                        }
-                      >
-                        PNG
-                      </p>
-                      <p
-                        onClick={() =>
-                          onDownload('svg', mainAddress, enableWatermark)
-                        }
-                      >
-                        SVG
-                      </p>
-                    </div>
-                  }
-                >
-                  <div className={cls(styles.btn, styles.download)}>
-                    <IconDownload />
-                  </div>
-                </Tooltip>
-                <div className={styles.btn} onClick={onClose}>
-                  <IconClose />
                 </div>
               </div>
-            </ConfigProvider>
-          </header>
-          <div className={styles.body}>
+            </div>
             {loading && (
               <div className={styles.loading}>
                 {/* <IconMetaDock className={styles.iconMetaDock} /> */}
@@ -543,19 +697,23 @@ const ModalFundFlowGraph: FC<Props> = ({
                 </div>
               )
             ) : null}
-            {/* {enableWatermark && (
-              <a
-                className={styles.watermark}
-                href="https://blocksec.com/metadock"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="https://assets.blocksec.com/image/1692101500475-4.png"
-                  alt=""
-                />
-              </a>
-            )} */}
+            {enableWatermark && (
+              <div className={styles.bottomWatermark}>
+                <img className={styles.watermark} src={getImageUrl('onchain_logo')} alt="" />
+                <div className={styles.watermarkTxt}>SWOT</div>
+              </div>
+              // <a
+              //   className={styles.watermark}
+              //   href="https://blocksec.com/metadock"
+              //   target="_blank"
+              //   rel="noreferrer"
+              // >
+              //   <img
+              //     src="https://assets.blocksec.com/image/1692101500475-4.png"
+              //     alt=""
+              //   />
+              // </a>
+            )}
           </div>
         </div>
       </div>

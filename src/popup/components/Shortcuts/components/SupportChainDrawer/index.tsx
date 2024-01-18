@@ -36,7 +36,7 @@ const SupportChainDrawer: FC<Props> = ({ visible, onClose, onChange }) => {
         <div className={styles.content}>
           {
             EXT_SUPPORT_WEB_LIST.filter(item => !!item.chain).map(item => (
-              <div className={styles.searchResultItem}>
+              <div className={styles.searchResultItem} key={item.name}>
                 <div className={styles.searchResultItemLeft}>
                   <img className={styles.searchResultItemImg} src={item.logo} alt="" />
                   <div className={styles.searchResultItemName}>{item.name}</div>
