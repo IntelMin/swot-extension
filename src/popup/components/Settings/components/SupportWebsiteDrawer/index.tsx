@@ -1,7 +1,7 @@
 import React, { type FC } from 'react'
 import { Checkbox } from 'antd'
 
-import { Cell, Drawer } from '@common/components'
+import { Cell, Drawer, Switch } from '@common/components'
 import { useStore } from '@common/hooks'
 import { type OptWebsite } from '@src/store'
 import { EXT_SUPPORT_WEB_LIST, type ExtSupportWebsite } from '@common/constants'
@@ -45,13 +45,17 @@ const SupportWebsiteDrawer: FC<Props> = ({ visible, onClose, onChange }) => {
                   pointer
                   icon={item.logo}
                   key={item.name}
-                  border={false}
+                  border={true}
                   title={item.name}
                   desc={extractSecondLevelDomain(item)}
                   action={
-                    <Checkbox
+                    // <Checkbox
+                    //   checked={opt.enabled}
+                    //   onChange={e => onChange(opt, e.target.checked)}
+                    // />
+                    <Switch
                       checked={opt.enabled}
-                      onChange={e => onChange(opt, e.target.checked)}
+                      onChange={e => onChange(opt, e)}
                     />
                   }
                   onClick={() => onChange(opt, !opt.enabled)}

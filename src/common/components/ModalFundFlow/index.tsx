@@ -491,7 +491,7 @@ const ModalFundFlowGraph: FC<Props> = ({
           </header>
           <div className={styles.body}>
             <div className={styles.setting}>
-              {SLEUTH_SUPPORT_LIST.includes(chain) && (
+              {/* {SLEUTH_SUPPORT_LIST.includes(chain) && (
                   <Button
                     className={styles.msButton}
                     type="primary"
@@ -509,7 +509,7 @@ const ModalFundFlowGraph: FC<Props> = ({
                     />
                     <span className={styles.tryProVersionTxt}>Try Pro Version</span>
                   </Button>
-                )}
+                )} */}
               <div className={styles.settingForm}>
 
               {fundFlow?.nodes && (

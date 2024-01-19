@@ -26,7 +26,7 @@ const Footer: FC = () => {
           @{new Date().getFullYear()}
         </span>
         {/* <span>Version {version}</span> */}
-        <span>Swot</span>
+        <span>SWOT</span>
       </div>
     </div>
   )
